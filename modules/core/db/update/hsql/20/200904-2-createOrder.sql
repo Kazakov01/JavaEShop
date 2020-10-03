@@ -1,0 +1,2 @@
+alter table ESHOP_ORDER add constraint FK_ESHOP_ORDER_ON_CUSTOMER foreign key (CUSTOMER_ID) references ESHOP_CUSTOMER(ID);
+create index IDX_ESHOP_ORDER_ON_CUSTOMER on ESHOP_ORDER (CUSTOMER_ID);

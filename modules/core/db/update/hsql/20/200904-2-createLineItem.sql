@@ -1,0 +1,4 @@
+alter table ESHOP_LINE_ITEM add constraint FK_ESHOP_LINE_ITEM_ON_PRODUCT foreign key (PRODUCT_ID) references ESHOP_ITEM(ID);
+alter table ESHOP_LINE_ITEM add constraint FK_ESHOP_LINE_ITEM_ON_ORDER foreign key (ORDER_ID) references ESHOP_ORDER(ID);
+create index IDX_ESHOP_LINE_ITEM_ON_PRODUCT on ESHOP_LINE_ITEM (PRODUCT_ID);
+create index IDX_ESHOP_LINE_ITEM_ON_ORDER on ESHOP_LINE_ITEM (ORDER_ID);

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://lineItemEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.eshop.web.screens.lineitem">
+    <data>
+        <instance id="lineItemDc"
+                  class="com.company.eshop.entity.LineItem">
+            <view extends="_local">
+                <property name="product" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+        <collection id="productsDc" class="com.company.eshop.entity.Product" view="_minimal">
+            <loader id="productsDl">
+                <query>
+                    <![CDATA[select e from eshop_Item e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="lineItemDc">
+            <column width="350px">
+                <lookupPickerField id="productField" optionsContainer="productsDc" property="product"/>
+                <textField id="quantityField" property="quantity"/>
+                <textField id="sumField" property="sum"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
